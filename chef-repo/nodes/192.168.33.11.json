@@ -1,0 +1,36 @@
+{
+//  "hostname": "192.168.33.11",
+  "platform": "centos",
+//  "platform_version": 6.3,
+  "user":{
+    "name": "appuser",
+    "group" : "appuser",
+    "home": "/home/appuser"
+  },
+  "rbenv":{
+    "version": "1.9.3-p362"
+  },
+  "nginx": {
+    "user": "appuser",
+    "group": "appuser"
+  },
+  "nginx_sinatra": {
+    "user": "appuser",
+    "group": "appuser",
+    "application_name": "hello_sinatra",
+    "application_dir": "/home/appuser/bin",
+    "application_port": 9292
+  },
+  "recipes":[
+    "dns",
+    "iptables",
+    "adduser",
+    "rbenv",
+    "chef",
+    "ohai",
+    "yum",
+    "nginx",
+    "nginx_sinatra",
+    "tools"
+  ]
+}

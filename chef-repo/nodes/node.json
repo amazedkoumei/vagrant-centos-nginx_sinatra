@@ -1,0 +1,21 @@
+{
+  "platform": "centos",
+  "user":{
+    "name": "appuser",
+    "group" : "appuser",
+    "home": "/home/appuser"
+  },
+  "rbenv":{
+    "version": "1.9.3-p362"
+  },
+  "recipes":[
+    "iptables",
+    "adduser",
+    "rbenv",
+    "chef",
+    "ohai",
+    "yum",
+    "nginx",
+    "tools"
+  ]
+}

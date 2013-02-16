@@ -1,0 +1,14 @@
+upstream <%= node["nginx_sinatra"]["application_name"] %> {
+  server <%= node["ipaddress"] %>:<%= node["nginx_sinatra"]["application_port"] %>;
+}
+
+server {
+  listen       80;
+  server_name  <%= node["hostname"] %>;
+
+  location / {
+    proxy_pass http://<%= node["nginx_sinatra"]["application_name"] %>;
+    proxy_set_header  X-Real-IP $remote_addr;
+    proxy_set_header  Host  $http_host;
+  }
+}

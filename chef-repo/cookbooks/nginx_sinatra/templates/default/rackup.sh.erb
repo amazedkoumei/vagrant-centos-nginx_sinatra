@@ -1,0 +1,63 @@
+#!/bin/bash
+#
+# Thank you ! http://autofuton.hatenadiary.jp/entry/20110930/1317371727
+# 
+PROG_NAME="sinatra"
+PID_FILE="/tmp/${PROG_NAME}.pid"
+
+LOG_FILE="/var/log/${PROG_NAME}/access_log-$(date +%Y%m%d-%H%M%S)"
+INIT_COMMAND="/home/<%= node["nginx_sinatra"]["user"] %>/.rbenv/shims/bundle exec rackup config.ru"
+
+start() {
+  if test -e $PID_FILE; then
+    PID="$(cat ${PID_FILE})"
+    echo "[ERROR] ${PROG_NAME} is already running (pid $PID)"
+    exit 1
+  fi
+
+  echo -n "Starting ${PROG_NAME} .. "
+  nohup ${INIT_COMMAND} > ${LOG_FILE} 2>&1 &
+# PID=$$
+  PID=$(ps -o pid,command ax | grep -e "rackup config.ru" | grep -v grep | head | awk '{print $1}')
+  if test $? -eq 0; then
+    echo "[  OK  ]"
+    echo $PID > "${PID_FILE}"
+  else 
+    echo -n "[FAILED]"
+    exit 1
+  fi
+}
+
+stop() {
+  if test -e ${PID_FILE}; then
+    PID="$(cat ${PID_FILE})"
+  else
+    exit 0
+  fi
+
+  echo -n "Stopping ${PROG_NAME} .. "
+  kill -9 ${PID}
+  if test $? -eq 0; then
+    echo "[  OK  ]"
+    rm ${PID_FILE}
+  else
+    rm ${PID_FILE}
+    exit 0
+  fi
+}
+
+case "$1" in
+  start)
+  start
+  ;;
+  stop)
+  stop
+  ;;
+  restart)
+  stop
+  start
+  ;;
+  *)
+  echo $"Usage: $0 {start|stop|restart}"
+  exit 1
+esac

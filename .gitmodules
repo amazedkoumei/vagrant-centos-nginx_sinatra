@@ -1,0 +1,24 @@
+[submodule "chef-repo/cookbooks/yum"]
+	path = chef-repo/cookbooks/yum
+	url = https://github.com/opscode-cookbooks/yum.git
+[submodule "chef-repo/cookbooks/nginx"]
+	path = chef-repo/cookbooks/nginx
+	url = https://github.com/opscode-cookbooks/nginx.git
+[submodule "chef-repo/cookbooks/ohai"]
+	path = chef-repo/cookbooks/ohai
+	url = https://github.com/opscode-cookbooks/ohai.git
+[submodule "chef-repo/cookbooks/build-essential"]
+	path = chef-repo/cookbooks/build-essential
+	url = https://github.com/opscode-cookbooks/build-essential.git
+[submodule "chef-repo/cookbooks/iptables"]
+	path = chef-repo/cookbooks/iptables
+	url = https://github.com/opscode-cookbooks/iptables.git
+[submodule "chef-repo/cookbooks/simple-iptables"]
+	path = chef-repo/cookbooks/simple-iptables
+	url = https://github.com/dcrosta/cookbook-simple-iptables.git
+[submodule "chef-repo/cookbooks/application"]
+	path = chef-repo/cookbooks/application
+	url = https://github.com/opscode-cookbooks/application.git
+[submodule "chef-repo/cookbooks/application_nginx"]
+	path = chef-repo/cookbooks/application_nginx
+	url = https://github.com/opscode-cookbooks/application_nginx.git
