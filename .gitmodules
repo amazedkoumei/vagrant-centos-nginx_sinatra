@@ -10,15 +10,3 @@
 [submodule "chef-repo/cookbooks/build-essential"]
 	path = chef-repo/cookbooks/build-essential
 	url = https://github.com/opscode-cookbooks/build-essential.git
-[submodule "chef-repo/cookbooks/iptables"]
-	path = chef-repo/cookbooks/iptables
-	url = https://github.com/opscode-cookbooks/iptables.git
-[submodule "chef-repo/cookbooks/simple-iptables"]
-	path = chef-repo/cookbooks/simple-iptables
-	url = https://github.com/dcrosta/cookbook-simple-iptables.git
-[submodule "chef-repo/cookbooks/application"]
-	path = chef-repo/cookbooks/application
-	url = https://github.com/opscode-cookbooks/application.git
-[submodule "chef-repo/cookbooks/application_nginx"]
-	path = chef-repo/cookbooks/application_nginx
-	url = https://github.com/opscode-cookbooks/application_nginx.git
